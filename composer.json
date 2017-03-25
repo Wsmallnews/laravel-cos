@@ -1,6 +1,7 @@
 {
     "name": "smallnews/laravel-cos",
     "description": "qclouds api",
+    "version": "1.0.0",
     "keywords": [
         "laravel",
         "qcloud",
