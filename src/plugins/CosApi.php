@@ -6,7 +6,7 @@
  * Time: 13:35
  */
 
-namespace YueCode\Cos;
+namespace Smallnews\Cos;
 
 class CosApi {
 

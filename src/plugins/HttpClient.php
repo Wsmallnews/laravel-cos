@@ -6,7 +6,7 @@
  * Time: 13:38
  */
 
-namespace YueCode\Cos;
+namespace Smallnews\Cos;
 
 function my_curl_reset($handler) {
     curl_setopt($handler, CURLOPT_URL, '');

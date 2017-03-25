@@ -6,7 +6,7 @@
  * Time: 13:37
  */
 
-namespace YueCode\Cos;
+namespace Smallnews\Cos;
 
 const COSAPI_SUCCESS         = 0;
 const COSAPI_PARAMS_ERROR    = -1;

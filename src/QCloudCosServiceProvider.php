@@ -6,7 +6,7 @@
  * Time: 11:18
  */
 
-namespace YueCode\Cos;
+namespace Smallnews\Cos;
 
 use Illuminate\Support\ServiceProvider;
 

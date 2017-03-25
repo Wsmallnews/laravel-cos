@@ -7,7 +7,7 @@
  * Time: 13:18
  */
 
-namespace YueCode\Cos;
+namespace Smallnews\Cos;
 
 /**
  * Auth class for creating reusable or nonreusable signature.

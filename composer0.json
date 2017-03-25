@@ -1,5 +1,5 @@
 {
-    "name": "smallnews/laravel-cos",
+    "name": "wsmallnews/laravel-cos",
     "description": "qclouds api",
     "keywords": [
         "laravel",
@@ -12,16 +12,15 @@
     ],
     "authors": [
         {
-            "name": "smallnews",
+            "name": "Wsmallnews",
             "email": "1371606921@qq.com"
         }
     ],
-    "license": "MIT",
     "minimum-stability": "dev",
     "require": {},
     "autoload": {
         "psr-4": {
-            "Smallnews\\Cos\\": "src/"
+            "YueCode\\Cos\\": "src/"
         }
     }
 }

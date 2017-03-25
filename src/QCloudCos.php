@@ -6,7 +6,7 @@
  * Time: 12:18
  */
 
-namespace YueCode\Cos;
+namespace Smallnews\Cos;
 
 include_once __DIR__ . '/plugins/ErrorCode.php';
 include_once __DIR__ . '/plugins/HttpClient.php';

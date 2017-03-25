@@ -6,7 +6,7 @@
  * Time: 13:48
  */
 
-namespace YueCode\Cos;
+namespace Smallnews\Cos;
 
 class SliceUploading
 {

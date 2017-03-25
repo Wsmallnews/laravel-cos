@@ -6,7 +6,7 @@
  * Time: 13:41
  */
 
-namespace YueCode\Cos;
+namespace Smallnews\Cos;
 
 /**
  * Build custom post fields for safe multipart POST request for php before 5.5.

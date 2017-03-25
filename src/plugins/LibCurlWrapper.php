@@ -6,7 +6,7 @@
  * Time: 13:42
  */
 
-namespace YueCode\Cos;
+namespace Smallnews\Cos;
 
 class HttpRequest {
     public $timeoutMs;        // int: the maximum number of milliseconds to perform this request.
