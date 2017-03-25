@@ -17,6 +17,7 @@
             "email": "1371606921@qq.com"
         }
     ],
+    "homepage": "https://github.com/Wsmallnews/laravel-cos",
     "require": {
         "php": ">=5.3.0"
     },
