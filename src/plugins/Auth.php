@@ -24,9 +24,9 @@ class Auth {
      * Return error code if parameter is not valid.
      */
     public static function createReusableSignature($expiration, $bucket, $filepath = null) {
-        $appId = config('qcloudcos.app_id');
-        $secretId = config('qcloudcos.secret_id');
-        $secretKey = config('qcloudcos.secret_key');
+        $appId = CosApi::$conf['app_id'];
+        $secretId = CosApi::$conf['secret_id'];
+        $secretKey = CosApi::$conf['secret_key'];
 
         if (empty($appId) || empty($secretId) || empty($secretKey)) {
             return self::AUTH_SECRET_ID_KEY_ERROR;
@@ -50,9 +50,9 @@ class Auth {
      * Return error code if parameter is not valid.
      */
     public static function createNonreusableSignature($bucket, $filepath) {
-        $appId = config('qcloudcos.app_id');
-        $secretId = config('qcloudcos.secret_id');
-        $secretKey = config('qcloudcos.secret_key');
+        $appId = CosApi::$conf['app_id'];
+        $secretId = CosApi::$conf['secret_id'];
+        $secretKey = CosApi::$conf['secret_key'];
 
         if (empty($appId) || empty($secretId) || empty($secretKey)) {
             return self::AUTH_SECRET_ID_KEY_ERROR;

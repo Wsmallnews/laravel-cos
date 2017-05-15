@@ -58,7 +58,7 @@ class HttpClient
 
         $header = isset($request['header']) ? $request['header'] : array();
         $header[] = 'Method:'.$method;
-        $header[] = 'User-Agent:'.config('qcloudcos.user_agent');
+        $header[] = 'User-Agent:'.CosApi::$conf['user_agent'];
         $header[] = 'Connection: keep-alive';
 
         isset($request['host']) && $header[] = 'Host:' . $request['host'];

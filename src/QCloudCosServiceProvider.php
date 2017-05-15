@@ -20,9 +20,9 @@ class QCloudCosServiceProvider extends ServiceProvider
     public function boot()
     {
         //
-        $this->publishes([
-            __DIR__ . '/config/qcloudcos.php' => config_path('qcloudcos.php'),
-        ]);
+        // $this->publishes([
+        //     __DIR__ . '/config/qcloudcos.php' => config_path('qcloudcos.php'),
+        // ]);
     }
 
     /**
@@ -32,8 +32,15 @@ class QCloudCosServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
-        $this->app['qcloudcos'] = new QCloudCos($this->app['config']);
+        // 获取配置
+        $old_conf = require __DIR__ . '/config/qcloudcos.php';
+        $config = $this->app['config']->get('qcloud', []);
+
+        // 合并设置
+        $qcloud['cos'] = array_merge($old_conf['cos'], $config['cos']);
+        $this->app['config']->set('qcloud', $qcloud);
+        
+        $this->app['qcloudcos'] = new QCloudCosOper($this->app['config']);
     }
     /**
      * Get the services provided by the provider.

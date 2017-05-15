@@ -17,12 +17,9 @@
             "email": "1371606921@qq.com"
         }
     ],
-    "homepage": "https://github.com/Wsmallnews/laravel-cos",
-    "require": {
-        "php": ">=5.3.0"
-    },
     "license": "MIT",
     "minimum-stability": "dev",
+    "require": {},
     "autoload": {
         "psr-4": {
             "Smallnews\\Cos\\": "src/"

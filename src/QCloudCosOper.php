@@ -16,7 +16,7 @@ include_once __DIR__ . '/plugins/SliceUploading.php';
 include_once __DIR__ . '/plugins/Auth.php';
 include_once __DIR__ . '/plugins/CosApi.php';
 
-class QCloudCos
+class QCloudCosOper
 {
     static private $conf;
 
@@ -47,8 +47,9 @@ class QCloudCos
      * @param  string  $folder       目录路径
      * @param  string  $bizAttr    目录属性
      */
-    static public function createFolder($bucket, $folder, $bizAttr = null)
+    static public function createFolder($folder, $bizAttr = null)
     {
+        $bucket = self::$conf['bucket'];
         $ret = CosApi::createFolder($bucket, $folder, $bizAttr);
         return $ret;
     }
@@ -63,8 +64,9 @@ class QCloudCos
      * @param  string  $insertOnly   同名文件是否覆盖
      * @return [type]                [description]
      */
-    static public function upload($bucket, $srcPath, $dstPath, $bizAttr=null, $sliceSize=null, $insertOnly=null)
+    static public function upload($srcPath, $dstPath, $bizAttr=null, $sliceSize=null, $insertOnly=null)
     {
+        $bucket = self::$conf['bucket'];
         $ret = Cosapi::upload($bucket, $srcPath, $dstPath, $bizAttr, $sliceSize, $insertOnly);
         return $ret;
     }
@@ -78,8 +80,9 @@ class QCloudCos
      * @param  int     $order    默认正序(=0), 填1为反序,
      * @param  string     透传字段,用于翻页,前端不需理解,需要往前/往后翻页则透传回来
      */
-    static public function listFolder($bucket, $folder, $num = 20, $pattern = 'eListBoth', $order = 0, $context = null)
+    static public function listFolder($folder, $num = 20, $pattern = 'eListBoth', $order = 0, $context = null)
     {
+        $bucket = self::$conf['bucket'];
         $ret = CosApi::listFolder($bucket, $folder, $num, $pattern, $order, $context);
         return $ret;
     }
@@ -93,8 +96,9 @@ class QCloudCos
      * @param  int     $order    默认正序(=0), 填1为反序,
      * @param  string     透传字段,用于翻页,前端不需理解,需要往前/往后翻页则透传回来
      */
-    static public function prefixSearch($bucket, $prefix, $num = 20, $pattern = 'eListBoth', $order = 0, $context = null)
+    static public function prefixSearch($prefix, $num = 20, $pattern = 'eListBoth', $order = 0, $context = null)
     {
+        $bucket = self::$conf['bucket'];
         $ret = CosApi::prefixSearch($bucket, $prefix, $num, $pattern, $order, $context);
         return $ret;
     }
@@ -105,8 +109,9 @@ class QCloudCos
      * @param  string  $folder      文件夹路径,SDK会补齐末尾的 '/'
      * @param  string  $bizAttr   目录属性
      */
-    static public function updateFolder($bucket, $folder,$bizAttr = null)
+    static public function updateFolder($folder,$bizAttr = null)
     {
+        $bucket = self::$conf['bucket'];
         $ret = Cosapi::updateFolder($bucket, $folder, $bizAttr);
         return $ret;
     }
@@ -116,8 +121,9 @@ class QCloudCos
       * @param  string  $bucket bucket名称
       * @param  string  $folder       目录路径
       */
-    static public function statFolder($bucket, $folder)
+    static public function statFolder($folder)
     {
+        $bucket = self::$conf['bucket'];
         $ret = Cosapi::statFolder($bucket, $folder);
         return $ret;
     }
@@ -127,8 +133,9 @@ class QCloudCos
      * @param  string  $bucket  bucket名称
      * @param  string  $path        文件路径
      */
-    static public function stat($bucket, $path)
+    static public function stat($path)
     {
+        $bucket = self::$conf['bucket'];
         $ret = Cosapi::stat($bucket, $path);
         return $ret;
     }
@@ -141,8 +148,9 @@ class QCloudCos
      * @param $overwrite if the destination location is occupied, overwrite it or not?
      * @return array|mixed.
      */
-    static public function copyFile($bucket, $srcFpath, $dstFpath, $overwrite = false)
+    static public function copyFile($srcFpath, $dstFpath, $overwrite = false)
     {
+        $bucket = self::$conf['bucket'];
         $ret = Cosapi::copyFile($bucket, $srcFpath, $dstFpath, $overwrite);
         return $ret;
     }
@@ -155,8 +163,9 @@ class QCloudCos
      * @param $overwrite if the destination location is occupied, overwrite it or not?
      * @return array|mixed.
      */
-    static public function moveFile($bucket, $srcFpath, $dstFpath, $overwrite = false)
+    static public function moveFile($srcFpath, $dstFpath, $overwrite = false)
     {
+        $bucket = self::$conf['bucket'];
         $ret = Cosapi::moveFile($bucket, $srcFpath, $dstFpath, $overwrite);
         return $ret;
     }
@@ -166,8 +175,9 @@ class QCloudCos
      * @param  string  $bucket
      * @param  string  $path      文件路径
      */
-    static public function delFile($bucket, $path)
+    static public function delFile($path)
     {
+        $bucket = self::$conf['bucket'];
         $ret = Cosapi::delFile($bucket, $path);
         return $ret;
     }
@@ -178,8 +188,9 @@ class QCloudCos
      * @param  string  $folder       目录路径
      *  注意不能删除bucket下根目录/
      */
-    static public function delFolder($bucket, $folder)
+    static public function delFolder($folder)
     {
+        $bucket = self::$conf['bucket'];
         $ret = Cosapi::delFolder($bucket, $folder);
         return $ret;
     }

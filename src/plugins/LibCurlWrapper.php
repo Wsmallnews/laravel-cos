@@ -63,7 +63,7 @@ class LibCurlWrapper {
         curl_setopt($curlHandle, CURLOPT_HEADER, 1);
         curl_setopt($curlHandle, CURLOPT_RETURNTRANSFER, 1);
         $headers = $httpRequest->customHeaders;
-        array_push($headers, 'User-Agent:'.config('qcloudcos.api_cos_api_end_point'));
+        array_push($headers, 'User-Agent:'.CosApi::$conf['api_cos_api_end_point']);
         if ($httpRequest->method === 'POST') {
             if (defined('CURLOPT_SAFE_UPLOAD')) {
                 curl_setopt($curlHandle, CURLOPT_SAFE_UPLOAD, true);

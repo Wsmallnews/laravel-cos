@@ -22,6 +22,7 @@ class CosApi {
     //HTTP请求超时时间
     private static $timeout = 60;
     private static $region = 'gz'; // default region is guangzou
+    public static $conf;
 
     /**
      * 设置HTTP请求超时时间
@@ -38,6 +39,10 @@ class CosApi {
 
     public static function setRegion($region) {
         self::$region = $region;
+    }
+
+    public static function setConf($conf) {
+        self::$conf = $conf;
     }
 
     /**
@@ -236,6 +241,7 @@ class CosApi {
 
         return self::delBase($bucket, $path);
     }
+    
 
     /**
      * 内部方法, 上传文件
@@ -563,10 +569,10 @@ class CosApi {
      * @param  string  $dstPath
      */
     private static function generateResUrl($bucket, $dstPath) {
-        $endPoint = config('qcloudcos.api_cos_api_end_point');
+        $endPoint = self::$conf['api_cos_api_end_point'];
         $endPoint = str_replace('region', self::$region, $endPoint);
 
-        return $endPoint . config('qcloudcos.app_id') . '/' . $bucket . $dstPath;
+        return $endPoint . self::$conf['app_id'] . '/' . $bucket . $dstPath;
     }
 
     /*
@@ -575,6 +581,7 @@ class CosApi {
      */
     private static function sendRequest($req) {
         $rsp = HttpClient::sendRequest($req);
+        
         if ($rsp === false) {
             return array(
                 'code' => COSAPI_NETWORK_ERROR,
