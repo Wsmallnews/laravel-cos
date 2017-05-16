@@ -1,10 +1,10 @@
 ## 腾讯云对象存储的 composer 包
-> 本包主要代码是腾讯云官方代码，但因官方一直没有composer 包，特此造了此轮子
+> 本包主要代码是腾讯云官方代码，但因官方一直没有composer 包，特此造了此轮子，本文档会不定时更新
 
 ### 腾讯云对象存储官方文档
 
 ```
-https://www.qcloud.com/document/product/436/6274
+https://www.qcloud.com/document/product/436/6274 
 ```
 
 ### 安装 
