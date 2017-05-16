@@ -1,7 +1,7 @@
 {
     "name": "wsmallnews/laravel-cos",
     "description": "qclouds api",
-    "version": "2.0.0",
+    "version": "2.0.1",
     "keywords": [
         "laravel",
         "qcloud",
@@ -19,7 +19,9 @@
     ],
     "license": "MIT",
     "minimum-stability": "dev",
-    "require": {},
+    "require": {
+        "wsmallnews/laravel-cos": "^1.0"
+    },
     "autoload": {
         "psr-4": {
             "Smallnews\\Cos\\": "src/"
