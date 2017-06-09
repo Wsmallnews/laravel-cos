@@ -19,6 +19,7 @@ include_once __DIR__ . '/plugins/CosApi.php';
 class QCloudCosOper
 {
     static private $conf;
+    static private $bucket;
 
     public function __construct($config)
     {
@@ -35,6 +36,15 @@ class QCloudCosOper
         CosApi::setConf(self::$conf);
     }
     
+    static public function setBucket($bucket) {
+        self::$bucket = $bucket ? : self::$conf['bucket'];
+    }
+    
+    
+    static public function getBucket() {
+        return self::$bucket;
+    }
+    
 
     static public function getAppId()
     {
@@ -49,7 +59,7 @@ class QCloudCosOper
      */
     static public function createFolder($folder, $bizAttr = null)
     {
-        $bucket = self::$conf['bucket'];
+        $bucket = self::getBucket();
         $ret = CosApi::createFolder($bucket, $folder, $bizAttr);
         return $ret;
     }
@@ -66,7 +76,7 @@ class QCloudCosOper
      */
     static public function upload($srcPath, $dstPath, $bizAttr=null, $sliceSize=null, $insertOnly=null)
     {
-        $bucket = self::$conf['bucket'];
+        $bucket = self::getBucket();
         $ret = Cosapi::upload($bucket, $srcPath, $dstPath, $bizAttr, $sliceSize, $insertOnly);
         return $ret;
     }
@@ -82,7 +92,7 @@ class QCloudCosOper
      */
     static public function listFolder($folder, $num = 20, $pattern = 'eListBoth', $order = 0, $context = null)
     {
-        $bucket = self::$conf['bucket'];
+        $bucket = self::getBucket();
         $ret = CosApi::listFolder($bucket, $folder, $num, $pattern, $order, $context);
         return $ret;
     }
@@ -98,7 +108,7 @@ class QCloudCosOper
      */
     static public function prefixSearch($prefix, $num = 20, $pattern = 'eListBoth', $order = 0, $context = null)
     {
-        $bucket = self::$conf['bucket'];
+        $bucket = self::getBucket();
         $ret = CosApi::prefixSearch($bucket, $prefix, $num, $pattern, $order, $context);
         return $ret;
     }
@@ -111,7 +121,7 @@ class QCloudCosOper
      */
     static public function updateFolder($folder,$bizAttr = null)
     {
-        $bucket = self::$conf['bucket'];
+        $bucket = self::getBucket();
         $ret = Cosapi::updateFolder($bucket, $folder, $bizAttr);
         return $ret;
     }
@@ -123,7 +133,7 @@ class QCloudCosOper
       */
     static public function statFolder($folder)
     {
-        $bucket = self::$conf['bucket'];
+        $bucket = self::getBucket();
         $ret = Cosapi::statFolder($bucket, $folder);
         return $ret;
     }
@@ -135,7 +145,7 @@ class QCloudCosOper
      */
     static public function stat($path)
     {
-        $bucket = self::$conf['bucket'];
+        $bucket = self::getBucket();
         $ret = Cosapi::stat($bucket, $path);
         return $ret;
     }
@@ -150,7 +160,7 @@ class QCloudCosOper
      */
     static public function copyFile($srcFpath, $dstFpath, $overwrite = false)
     {
-        $bucket = self::$conf['bucket'];
+        $bucket = self::getBucket();
         $ret = Cosapi::copyFile($bucket, $srcFpath, $dstFpath, $overwrite);
         return $ret;
     }
@@ -165,7 +175,7 @@ class QCloudCosOper
      */
     static public function moveFile($srcFpath, $dstFpath, $overwrite = false)
     {
-        $bucket = self::$conf['bucket'];
+        $bucket = self::getBucket();
         $ret = Cosapi::moveFile($bucket, $srcFpath, $dstFpath, $overwrite);
         return $ret;
     }
@@ -177,7 +187,7 @@ class QCloudCosOper
      */
     static public function delFile($path)
     {
-        $bucket = self::$conf['bucket'];
+        $bucket = self::getBucket();
         $ret = Cosapi::delFile($bucket, $path);
         return $ret;
     }
@@ -190,7 +200,7 @@ class QCloudCosOper
      */
     static public function delFolder($folder)
     {
-        $bucket = self::$conf['bucket'];
+        $bucket = self::getBucket();
         $ret = Cosapi::delFolder($bucket, $folder);
         return $ret;
     }
