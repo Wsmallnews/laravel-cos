@@ -1,10 +1,9 @@
 <?php
-
 /**
  * qcloud config file
  * @author @smallnews 2017-03-27
- * @return [type] [description]
  */
+
 return [
     'cos' => [
         'version' => 'v4.2.3',

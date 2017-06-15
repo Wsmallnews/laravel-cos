@@ -1,9 +1,7 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: lewis
- * Date: 2017/3/3
- * Time: 12:18
+ * qcloud 操作类
+ * @author @smallnews 2017-06-05
  */
 
 namespace Smallnews\Cos;
@@ -24,6 +22,7 @@ class QCloudCosOper
     public function __construct($config)
     {
         self::$conf = $config["qcloud"]["cos"];
+        self::$bucket = self::$conf['bucket'];
         CosApi::setTimeout(self::$conf['time_out']);
         CosApi::setRegion(self::$conf['location']);
         CosApi::setConf(self::$conf);
@@ -31,13 +30,14 @@ class QCloudCosOper
 
     static public function cosInit($config){
         self::$conf = $config;
+        self::$bucket = self::$conf['bucket'];
         CosApi::setTimeout(self::$conf['time_out']);
         CosApi::setRegion(self::$conf['location']);
         CosApi::setConf(self::$conf);
     }
     
     static public function setBucket($bucket) {
-        self::$bucket = $bucket ? : self::$conf['bucket'];
+        self::$bucket = $bucket ? : self::$bucket;
     }
     
     

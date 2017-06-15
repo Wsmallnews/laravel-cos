@@ -1,9 +1,7 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: lewis
- * Date: 2017/3/3
- * Time: 13:48
+ * qcloud 操作类
+ * @author @smallnews 2017-06-05
  */
 
 namespace Smallnews\Cos;

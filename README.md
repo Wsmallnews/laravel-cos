@@ -1,10 +1,10 @@
 ## 腾讯云对象存储的 composer 包
 > 本包主要代码是腾讯云官方代码，但因官方一直没有composer 包，特此造了此轮子，本文档会不定时更新
 
-### 更新日期
+### 版本更新时间
 
 ```
-2017-06-03
+2017-06-15
 ```
 
 ### 腾讯云对象存储官方文档
@@ -68,6 +68,8 @@ app('qcloudcos')::getAppId();
 > 下面列出了所有接口，接口参数只给了必填参数，其他参数可参考腾讯云官方对象存储文档查看，已将所有方法中的 $bucketName参数默认使用配置文件中的 bucket 配置
 
 ```
+QCloudCosOper::setBucket($bucket);                  // 设置bucket
+QCloudCosOper::getBucket();                         // 获取bucket
 QCloudCosOper::getAppId();                          // 获取 appId
 QCloudCosOper::createFolder($folder);               // 创建目录
 QCloudCosOper::upload($srcPath, $dstPath);          // 上传文件
